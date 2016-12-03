@@ -1,3 +1,8 @@
+
+/*This removes the Duplicates of Elements In an Array
+Time Complexity : O(n)
+Space Complexity : O(n)
+*/
 package SingleArray;
 
 import java.util.Arrays;
