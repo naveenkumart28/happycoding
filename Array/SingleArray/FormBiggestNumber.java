@@ -32,6 +32,5 @@ public class FormBiggestNumber {
 		System.out.println(s);
 
 	}
-
 }
 
