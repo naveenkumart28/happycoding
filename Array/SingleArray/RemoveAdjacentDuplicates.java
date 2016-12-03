@@ -1,7 +1,13 @@
 package SingleArray;
 
 import java.util.Arrays;
-
+/*
+Removing Adjacent Duplicates.
+Given an array we should remove adjacent duplicates,
+if  given array is { 1, 0, 6, 5, 8, 8, 8, 5, 6, 0 }, removing adjacent duplicates
+will give resultant array as {1}.
+In Simple Words, Form an Output Array With nil Adjacent duplicates.
+*/
 public class RemoveAdjacentDuplicates {
 
 	public static void main(String[] args) {
