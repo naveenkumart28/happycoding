@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="AddressVerifyProcessImplService"
+	targetNamespace="http://order.demo/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+	xmlns:soap="http:// schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://order.demo/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www. w3.org/2001/XMLSchema">
+	<wsdl:types> <!-- Schema definition for Address element. This serves as the input message 
+			format for invoking the Address verification service. -->
+		<xs:schema attributeFormDefault="unqualified"
+			elementFormDefault="unqualified" targetNamespace="http://order.demo/"
+			xmlns:tns="http://order. demo/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:element name="Address" type="tns:address" />
+			<xs:element name="verifyAddress" type="tns:verifyAddress" />
+			<xs:element name="verifyAddressResponse" type="tns:verifyAddressResponse" />
+			<xs:complexType name="verifyAddress">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="arg0" type="tns:address" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="address">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="addressLine1" type="xs:string" />
+					<xs:element minOccurs="0" name="addressLine2" type="xs:string" />
+					<xs:element minOccurs="0" name="city" type="xs:string" />
+					<xs:element minOccurs="0" name="country" type="xs:string" />
+					<xs:element minOccurs="0" name="state" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="verifyAddressResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types> <!-- Specifies the Messages for Address Verification Service. -->
+	<wsdl:message name="verifyAddressResponse">
+		<wsdl:part element="tns:verifyAddressResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="verifyAddress">
+		<wsdl:part element="tns:verifyAddress" name="parameters">
+		</wsdl:part>
+	</wsdl:message> <!-- Specifies the Operations for Verify Address service. -->
+	<wsdl:portType name="AddressVerifyProcess">
+		<wsdl:operation name="verifyAddress">
+			<wsdl:input message="tns:verifyAddress" name="verifyAddress">
+			</wsdl:input>
+			<wsdl:output message="tns:verifyAddressResponse" name="verifyAddressResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType> <!-- Specifies the SOAP Binding for Verify Address Process. -->
+	<wsdl:binding name="AddressVerifyProcessImplServiceSoapBinding"
+		type="tns:AddressVerifyProcess">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="verifyAddress">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="verifyAddress">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="verifyAddressResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding> <!-- Service definition for Verify Address . --> <!-- The soap location specifies the URL where the address verify service 
+		is located. -->
+	<wsdl:service name="AddressVerifyProcessImplService">
+		<wsdl:port binding="tns:AddressVerifyProcessImplServiceSoapBinding"
+			name="AddressVerifyProcessImplPort">
+			<soap:address location="http://localhost:9000/ AddressVerifyProcess" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
