@@ -37,5 +37,6 @@ public class RemoveAdjacentDuplicates {
 		}
 		return str;
 	}
+	
 
 }
