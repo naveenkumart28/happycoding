@@ -35,6 +35,5 @@ public class DuplicatesRemoval {
 		int[] arr1 = Arrays.copyOfRange(arr, 0, longestLength);
 		return arr1;
 	}
-
 }
 
