@@ -19,7 +19,7 @@ public class DuplicatesRemoval {
 		int longestLength = arr.length;
 		for(int i=0; i< arr.length;i++) {
 			for (int j=i+1;j< arr.length;j++) {
-				if(arr[i] == arr[j] && arr[j] != -1) {
+				if(arr[i] == arr[j] && longestLength-j >0) {
 					longestLength--;
 					while(j < arr.length) {
 						if(j == arr.length-1) arr[j]= -1;
